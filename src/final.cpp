@@ -4,8 +4,8 @@ using namespace std;
 
 struct Node {
   char data;
-  struct Node *left;
-  struct Node *right;
+  Node *left;
+  Node *right;
 
   Node(char x) : data(x), left(nullptr), right(nullptr) {}
   Node(char x, Node *l, Node *r) : data(x), left(l), right(r) {}
@@ -26,17 +26,12 @@ void deleteTree(Node *head) {
   delete head;
 }
 
-string printInorder(Node* head) {
-  string output = "";
-  auto print = [&](Node* root) {
+void printInorder(Node* root) {
 	if(root == nullptr) return;
 
 	printInorder(root->left);
-	output.push_back(root->data);
+	cout << root->data << ' ';
 	printInorder(root->right);
-  };
-  print(head);
-  return output;
 }
 
 string infixToPrefix(string s) {
@@ -80,7 +75,7 @@ string infixToPrefix(string s) {
   return ans;
 }
 
-pair<Node *, int> prefixToTree(const string &s, int l, int r) {
+pair<Node *, int> prefixToTree(const string& s, int l, int r) {
   if (l > r)
     return {nullptr, l};
   else if (l == r)
@@ -130,23 +125,29 @@ bool evaluate(Node* head, const unordered_map<char, bool>& vals) {
   }
 }
 
-void solve() {
-  int n; cin >> n;
-  string s; cin >> s;
+int main() {
+  int n;
+  cin >> n;
+  string s;
+  cin >> s;
+  string prefix = infixToPrefix(s);
+  Node *root = prefixToTree(prefix, 0, prefix.size() - 1).first;
+
+  cout << "Prefix: " << prefix << "\n";
+  cout << "Inorder: " << '\n';
+  printInorder(root);
+  cout << "\nHeight: " << height(root) << "\n";
+
   unordered_map<char, bool> vals;
   for (int i = 0; i < n; ++i) {
-	char c; cin >> c;
-	int a; cin >> a;
+	char c;
+	cin >> c;
+	int a;
+	cin >> a;
 	vals[c] = a;
   }
+  cout << "Evaluate: " << evaluate(root, vals) << '\n';
 
-  string prefix = infixToPrefix(s);
-  Node* head = prefixToTree(prefix, 0, (int)prefix.size() - 1).first;
-  cout << evaluate(head, vals) << '\n';
-  deleteTree(head);
-}
-
-int main() {
-  solve();
+  deleteTree(root);
   return 0;
 }

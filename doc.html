@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-09 Sun 09:27 -->
+<!-- 2022-10-09 Sun 17:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Assignment 1</title>
@@ -25,24 +25,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org776e5f8">1. Converting infix to prefix expression</a>
+<li><a href="#orgbdaad58">1. Converting infix to prefix expression</a>
 <ul>
-<li><a href="#org45c8011">1.1. Algorithm</a></li>
-<li><a href="#org0ce807d">1.2. Final function</a></li>
+<li><a href="#org3603431">1.1. Algorithm</a></li>
+<li><a href="#org748e255">1.2. Final function</a></li>
 </ul>
 </li>
-<li><a href="#org1b518fa">2. Converting the prefix expression to a rooted binary parse tree</a>
+<li><a href="#org9c7dcc8">2. Converting the prefix expression to a rooted binary parse tree</a>
 <ul>
-<li><a href="#orga368723">2.1. Algorithm</a></li>
-<li><a href="#org180614e">2.2. Final function</a></li>
+<li><a href="#org1ab82db">2.1. Algorithm</a></li>
+<li><a href="#orgeb4973d">2.2. Final function</a></li>
 </ul>
 </li>
-<li><a href="#org23e6647">3. Outputting the infix expression by in-order traversal</a></li>
-<li><a href="#org8f85ac4">4. Computing the height of the parse tree</a></li>
-<li><a href="#org3577ee9">5. Evaluating the truth value of a propositional logic formula</a>
+<li><a href="#org078f24c">3. Outputting the infix expression by in-order traversal</a></li>
+<li><a href="#orga23965c">4. Computing the height of the parse tree</a></li>
+<li><a href="#org04c7441">5. Evaluating the truth value of a propositional logic formula</a>
 <ul>
-<li><a href="#orgc3c8cf7">5.1. Algorithm</a></li>
-<li><a href="#orgf0e5f20">5.2. Final function</a></li>
+<li><a href="#org1ad14cc">5.1. Algorithm</a></li>
+<li><a href="#org0bd40c8">5.2. Final function</a></li>
 </ul>
 </li>
 </ul>
@@ -72,24 +72,24 @@ Group Members:
 </tr>
 
 <tr>
-<td class="org-left">Chinmay Anand</td>
+<td class="org-left">Anand Babu</td>
 <td class="org-left">2020B3A70776H</td>
 </tr>
 
 <tr>
-<td class="org-left">Arya Singalwar</td>
+<td class="org-left">Arya not-so-single war</td>
 <td class="org-left">2020B3A71861H</td>
 </tr>
 
 <tr>
-<td class="org-left">Dhruv Deshmukh</td>
+<td class="org-left">Dhruvudeen-Al-Deshmukh</td>
 <td class="org-left">2020B3A72160H</td>
 </tr>
 </tbody>
 </table>
 
-<div id="outline-container-org776e5f8" class="outline-2">
-<h2 id="org776e5f8"><span class="section-number-2">1.</span> Converting infix to prefix expression</h2>
+<div id="outline-container-orgbdaad58" class="outline-2">
+<h2 id="orgbdaad58"><span class="section-number-2">1.</span> Converting infix to prefix expression</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The precedence order of all the operations are as follows:
@@ -104,8 +104,8 @@ In order to convert an infix propositional logic expresson to a prefix expressio
 </p>
 </div>
 
-<div id="outline-container-org45c8011" class="outline-3">
-<h3 id="org45c8011"><span class="section-number-3">1.1.</span> Algorithm</h3>
+<div id="outline-container-org3603431" class="outline-3">
+<h3 id="org3603431"><span class="section-number-3">1.1.</span> Algorithm</h3>
 <div class="outline-text-3" id="text-1-1">
 <ol class="org-ol">
 <li><p>
@@ -194,8 +194,8 @@ Reverse the output string to get the final prefix expression.
 </div>
 </div>
 
-<div id="outline-container-org0ce807d" class="outline-3">
-<h3 id="org0ce807d"><span class="section-number-3">1.2.</span> Final function</h3>
+<div id="outline-container-org748e255" class="outline-3">
+<h3 id="org748e255"><span class="section-number-3">1.2.</span> Final function</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-c++"><span style="color: #ffc777;">string</span> <span style="color: #82aaff;">infixToPrefix</span><span style="color: #c099ff;">(</span><span style="color: #ffc777;">string</span> <span style="color: #ff98a4;">s</span><span style="color: #c099ff;">)</span> <span style="color: #c099ff;">{</span>
@@ -240,8 +240,8 @@ Reverse the output string to get the final prefix expression.
 </div>
 </div>
 
-<div id="outline-container-org1b518fa" class="outline-2">
-<h2 id="org1b518fa"><span class="section-number-2">2.</span> Converting the prefix expression to a rooted binary parse tree</h2>
+<div id="outline-container-org9c7dcc8" class="outline-2">
+<h2 id="org9c7dcc8"><span class="section-number-2">2.</span> Converting the prefix expression to a rooted binary parse tree</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 First we define a <code>Node</code> structure to denote the nodes of the binary tree:
@@ -287,8 +287,8 @@ The second value in the output is necessary for separating the left and right su
 </div>
 </div>
 
-<div id="outline-container-orga368723" class="outline-3">
-<h3 id="orga368723"><span class="section-number-3">2.1.</span> Algorithm</h3>
+<div id="outline-container-org1ab82db" class="outline-3">
+<h3 id="org1ab82db"><span class="section-number-3">2.1.</span> Algorithm</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>Understanding the base case:
@@ -358,8 +358,8 @@ If the first character of the string is not an operator, then it's just a propos
 </div>
 </div>
 
-<div id="outline-container-org180614e" class="outline-3">
-<h3 id="org180614e"><span class="section-number-3">2.2.</span> Final function</h3>
+<div id="outline-container-orgeb4973d" class="outline-3">
+<h3 id="orgeb4973d"><span class="section-number-3">2.2.</span> Final function</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-c++"><span style="color: #ffc777;">pair</span><span style="color: #c099ff;">&lt;</span><span style="color: #ffc777;">Node</span>*, <span style="color: #ffc777;">int</span><span style="color: #c099ff;">&gt;</span> <span style="color: #82aaff;">prefixToTree</span><span style="color: #c099ff;">(</span><span style="color: #c099ff;">const</span> <span style="color: #ffc777;">string</span>&amp; <span style="color: #ff98a4;">s</span>, <span style="color: #ffc777;">int</span> <span style="color: #ff98a4;">l</span>, <span style="color: #ffc777;">int</span> <span style="color: #ff98a4;">r</span><span style="color: #c099ff;">)</span> <span style="color: #c099ff;">{</span>
@@ -392,8 +392,8 @@ If the first character of the string is not an operator, then it's just a propos
 </div>
 </div>
 
-<div id="outline-container-org23e6647" class="outline-2">
-<h2 id="org23e6647"><span class="section-number-2">3.</span> Outputting the infix expression by in-order traversal</h2>
+<div id="outline-container-org078f24c" class="outline-2">
+<h2 id="org078f24c"><span class="section-number-2">3.</span> Outputting the infix expression by in-order traversal</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 In order to obtain the infix expression, we need to perform an in-order traversal of the binary parse tree. This can be done by employing a recursive algorithm:
@@ -411,8 +411,8 @@ In order to obtain the infix expression, we need to perform an in-order traversa
 </div>
 </div>
 
-<div id="outline-container-org8f85ac4" class="outline-2">
-<h2 id="org8f85ac4"><span class="section-number-2">4.</span> Computing the height of the parse tree</h2>
+<div id="outline-container-orga23965c" class="outline-2">
+<h2 id="orga23965c"><span class="section-number-2">4.</span> Computing the height of the parse tree</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-c++"><span style="color: #ffc777;">int</span> <span style="color: #82aaff;">height</span><span style="color: #c099ff;">(</span><span style="color: #ffc777;">Node</span> *<span style="color: #ff98a4;">root</span><span style="color: #c099ff;">)</span> <span style="color: #c099ff;">{</span>
@@ -424,8 +424,8 @@ In order to obtain the infix expression, we need to perform an in-order traversa
 </div>
 </div>
 
-<div id="outline-container-org3577ee9" class="outline-2">
-<h2 id="org3577ee9"><span class="section-number-2">5.</span> Evaluating the truth value of a propositional logic formula</h2>
+<div id="outline-container-org04c7441" class="outline-2">
+<h2 id="org04c7441"><span class="section-number-2">5.</span> Evaluating the truth value of a propositional logic formula</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 In order to solve this task, we're going to take a pointer to the root of the parse tree as well as a hashmap of all the variables and their truth values as input. The function is going to evaluate the logical expression and give a truth or false value as output. The function signature is of the form:
@@ -436,8 +436,8 @@ In order to solve this task, we're going to take a pointer to the root of the pa
 </div>
 </div>
 
-<div id="outline-container-orgc3c8cf7" class="outline-3">
-<h3 id="orgc3c8cf7"><span class="section-number-3">5.1.</span> Algorithm</h3>
+<div id="outline-container-org1ad14cc" class="outline-3">
+<h3 id="org1ad14cc"><span class="section-number-3">5.1.</span> Algorithm</h3>
 <div class="outline-text-3" id="text-5-1">
 <ol class="org-ol">
 <li><p>
@@ -489,8 +489,8 @@ If the current node isn't a propositional atom, then it must be an operator. We 
 </div>
 </div>
 
-<div id="outline-container-orgf0e5f20" class="outline-3">
-<h3 id="orgf0e5f20"><span class="section-number-3">5.2.</span> Final function</h3>
+<div id="outline-container-org0bd40c8" class="outline-3">
+<h3 id="org0bd40c8"><span class="section-number-3">5.2.</span> Final function</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-c++"><span style="color: #ffc777;">bool</span> <span style="color: #82aaff;">evaluate</span><span style="color: #c099ff;">(</span><span style="color: #ffc777;">Node</span>* <span style="color: #ff98a4;">head</span>, <span style="color: #c099ff;">const</span> <span style="color: #ffc777;">unordered_map</span><span style="color: #ff995e;">&lt;</span><span style="color: #ffc777;">char</span>, <span style="color: #ffc777;">bool</span><span style="color: #ff995e;">&gt;</span>&amp; <span style="color: #ff98a4;">vals</span><span style="color: #c099ff;">)</span> <span style="color: #c099ff;">{</span>
@@ -524,7 +524,7 @@ If the current node isn't a propositional atom, then it must be an operator. We 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-10-09 Sun 09:27</p>
+<p class="date">Created: 2022-10-09 Sun 17:45</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
