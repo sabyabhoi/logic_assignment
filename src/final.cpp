@@ -38,32 +38,31 @@ string infixToPrefix(string s) {
   stack<char> st;
   reverse(s.begin(), s.end());
 
-  unordered_map<char, int> operators = {{'>', 1}, {'+', 2}, {'*', 3}, {'~', 4}};
+  const unordered_map<char, int> operators = {{'>', 1}, {'+', 2}, {'*', 3}, {'~', 4}};
   string ans = "";
 
   for (char c : s) {
     if (c == ' ')
       continue;
     if (operators.find(c) != operators.end()) {
-      if (st.empty() || operators[c] > operators[st.top()])
+	  if (st.empty() || st.top() == ')' || operators.at(c) > operators.at(st.top())) {
         st.push(c);
-      else {
-        while (!st.empty() && operators[c] < operators[st.top()]) {
+      } else {
+        while (!st.empty() && operators.at(c) < operators.at(st.top())) {
           ans.push_back(st.top());
           st.pop();
         }
 		st.push(c);
       }
-    } else if (c == ')')
-      st.push(c);
-    else if (c == '(') {
+    } else if (c == ')') {
+	  st.push(c);
+	} else if (c == '(') {
       while (st.top() != ')') {
         ans.push_back(st.top());
         st.pop();
       }
       st.pop();
-    } else
-      ans.push_back(c);
+    } else ans.push_back(c);
   }
 
   while (!st.empty()) {
