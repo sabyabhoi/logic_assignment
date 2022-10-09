@@ -1,0 +1,312 @@
+#+TITLE:Assignment 1
+#+SUBTITLE:Logic in computer science
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+Group Members:
+|------------------------+---------------|
+| Name                   | ID            |
+|------------------------+---------------|
+| Sabyasachi Bhoi        | 2020B3A72147H |
+| Anand Babu             | 2020B3A70776H |
+| Arya not-so-single war | 2020B3A71861H |
+| Dhruvudeen-Al-Deshmukh | 2020B3A72160H |
+|------------------------+---------------|
+
+* Converting infix to prefix expression
+The precedence order of all the operations are as follows:
+
+#+begin_src 
+~ > * > + > (>)
+#+end_src
+
+In order to convert an infix propositional logic expresson to a prefix expression, we make use of the *Stack* data structure.
+
+** Algorithm
+1. Initialize an empty stack and an =ans= variable to keep track of the final answer.
+    #+begin_src c++
+    stack<char> st;
+    string ans = "";
+    #+end_src
+
+2. Define a hashmap to keep track of the precedence order of all the operators:
+    #+begin_src c++
+    unordered_map<char, int> operators = {{'>', 1}, {'+', 2}, {'*', 3}, {'~', 4}};
+    #+end_src
+
+3. Reverse the original infix expression.
+    #+begin_src c++
+    reverse(s.begin(), s.end());
+    #+end_src
+
+4. Traverse through the expression:
+   1. If the current character is propositional atom, append it to the output string.
+   2. If the current character is an operator, check the precedence order:
+      1. If it has higher or equal precedence than the topmost element of the stack, then push it onto the stack.
+      2. otherwise, pop the topmost operator on the stack, append it to the output string, and push the current operator onto the stack.
+5. For dealing with parenthesis:
+   1. If you encounter a closing parenthesis, push it onto the stack.
+   2. If you encounter an opening parenthesis, keeping popping operators from the stack till you encounter a closing parenthesis, and keep appending these operators to the output string.
+    #+begin_src c++
+    for(char c : s) {
+        if(operators.find(c) != operators.end()) {
+        if(st.empty() || operators[c] > operators[st.top()]) st.push(c);
+        else {
+            ans.push_back(st.top());
+            st.pop();
+            st.push(c);
+        }
+        }
+        else if(c == ')') st.push(c);
+        else if(c == '(') {
+        while(st.top() != ')') {
+            ans.push_back(st.top());
+            st.pop();
+        }
+        st.pop();
+        }
+        else ans.push_back(c);
+    }
+    #+end_src
+
+6. Once you reach the end of the expression, pop all the operators from the stack and append them to the output string.
+    #+begin_src c++
+    while(!st.empty()) {
+        ans.push_back(st.top());
+        st.pop();
+    }
+    #+end_src
+
+7. Reverse the output string to get the final prefix expression.
+    #+begin_src c++
+    reverse(ans.begin(), ans.end());
+    #+end_src
+
+** Final function
+#+begin_src c++
+string infixToPrefix(string s) {
+  stack<char> st;
+  reverse(s.begin(), s.end());
+
+  unordered_map<char, int> operators = {{'>', 1}, {'+', 2}, {'*', 3}, {'~', 4}};
+  string ans = "";
+
+  for(char c : s) {
+	if(c == ' ') continue;
+	if(operators.find(c) != operators.end()) {
+	  if(st.empty() || operators[c] > operators[st.top()]) st.push(c);
+	  else {
+		ans.push_back(st.top());
+		st.pop();
+		st.push(c);
+	  }
+	}
+	else if(c == ')') st.push(c);
+	else if(c == '(') {
+	  while(st.top() != ')') {
+		ans.push_back(st.top());
+		st.pop();
+	  }
+	  st.pop();
+	}
+	else ans.push_back(c);
+  }
+
+  while(!st.empty()) {
+	ans.push_back(st.top());
+	st.pop();
+  }
+
+  reverse(ans.begin(), ans.end());
+  return ans;
+}
+#+end_src
+
+* Converting the prefix expression to a rooted binary parse tree
+First we define a =Node= structure to denote the nodes of the binary tree:
+#+begin_src c++
+  struct Node {
+    char data;
+    struct Node *left;
+    struct Node *right;
+  
+    Node (char x) : data(x), left(nullptr), right(nullptr) {}
+  };
+#+end_src
+
+For actually converting the given prefix expression to a rooted binary parse tree, we're going to employ a recursive algorithm which takes
+- the prefix expression as a string,
+- the starting index of the string, and
+- the ending index of the string
+as arguments. 
+
+The function is going to return two values:
+- the root node of the parse tree, and
+- the index of string where the tree ended.
+
+The second value in the output is necessary for separating the left and right subtrees of the parse tree. The final function signature is of the form:
+
+#+begin_src c++
+pair<Node*, int> prefixToTree(const string& s, int l, int r);
+#+end_src
+
+** Algorithm
+1. Understanding the base case:
+    - If the provided string is empty, return a null pointer:
+      #+begin_src c++
+        if(l > r) return {nullptr, l};
+      #+end_src
+    - If the provided string only has a single character, return a new node pointer to it;
+      #+begin_src c++
+         else if(l == r) 
+           return {new Node(s[l]), l};
+      #+end_src
+
+2. Initialize a new node pointer pointing to the first character of the string:
+   #+begin_src c++
+     Node* curr = new Node(s[l]);
+   #+end_src
+
+3. If the first character of the string is the *not* operator, then make a recursive call to the remainder of the string and assign the returned node to the right subtree of the root:
+   #+begin_src c++
+     if(s[l] == '~') {
+       auto right = prefixToTree(s, l + 1, r);
+       curr->right = right.first;
+
+       return {curr, right.second};
+      }
+   #+end_src
+
+4. Otherwise, if the first character of the string is any other operator, then make a recursive call to the remainder of the string, assign it to the left subtree of the root. This recursive call is also going to return where the left subtree expression ended in the original string. Use this to recursively obtain the *right* subtree from the expression:
+   #+begin_src c++
+      else if(s[l] == '*' || s[l] == '+' || s[l] == '>') {
+        auto left = prefixToTree(s, l + 1, r);
+        curr->left = left.first;
+
+        auto right = prefixToTree(s, left.second + 1, r);
+        curr->right = right.first;
+
+        return {curr, right.second};
+      }
+   #+end_src
+
+5. If the first character of the string is not an operator, then it's just a propositional atom, so just return a new node to it:
+   #+begin_src c++
+     return {curr, l};
+   #+end_src
+
+** Final function
+#+begin_src c++
+  pair<Node*, int> prefixToTree(const string& s, int l, int r) {
+    if(l > r) return {nullptr, l};
+    else if(l == r) 
+      return {new Node(s[l]), l};
+
+    Node* curr = new Node(s[l]);
+
+    if(s[l] == '~') {
+      auto right = prefixToTree(s, l + 1, r);
+      curr->right = right.first;
+
+      return {curr, right.second};
+    }
+    else if(s[l] == '*' || s[l] == '+' || s[l] == '>') {
+      auto left = prefixToTree(s, l + 1, r);
+      curr->left = left.first;
+
+      auto right = prefixToTree(s, left.second + 1, r);
+      curr->right = right.first;
+
+      return {curr, right.second};
+    }
+    return {curr, l};
+  }
+#+end_src
+
+* Outputting the infix expression by in-order traversal
+In order to obtain the infix expression, we need to perform an in-order traversal of the binary parse tree. This can be done by employing a recursive algorithm:
+#+begin_src c++
+  void printInorder(Node* head) {
+    if(head == nullptr) return;
+
+    printInorder(head->left);
+    cout << head->data << ' ';
+    printInorder(head->right);
+  }
+#+end_src
+
+* Computing the height of the parse tree
+#+begin_src c++
+int height(Node *root) {
+  if(root == nullptr) return 0;
+  return max(height(root->left), height(root->right)) + 1;
+}
+#+end_src
+
+* Evaluating the truth value of a propositional logic formula
+In order to solve this task, we're going to take a pointer to the root of the parse tree as well as a hashmap of all the variables and their truth values as input. The function is going to evaluate the logical expression and give a truth or false value as output. The function signature is of the form:
+#+begin_src c++
+  bool evaluate(Node* head, const unordered_map<char, bool>& vals);
+#+end_src
+
+** Algorithm
+1. If a =null= value is passed as the root node, meaning we're given a tree of height 0, then we just return false.
+   #+begin_src c++
+     if(head == nullptr) return false;
+   #+end_src
+2. If the current node is a propositional atom, then we just return its truth value from the hashmap taken as input.
+   #+begin_src c++
+     if(vals.find(head->data) != vals.end())
+       return vals.at(head->data);
+   #+end_src
+3. Then we just recursively evaluate the left and right subtrees of the parse tree.
+   #+begin_src c++
+     bool l = evaluate(head->left, vals), r = evaluate(head->right, vals);
+   #+end_src
+4. If the current node isn't a propositional atom, then it must be an operator. We use a switch statement to match all the operators.
+   #+begin_src c++
+     switch (head->data) {
+      case '~':
+        return !r;
+        break;
+      case '+':
+        return l || r;
+        break;
+      case '*':
+        return l && r;
+        break;
+      case '>':
+        return !l || r;
+        break;
+      default:
+        return false;
+        break;
+      }
+   #+end_src
+
+** Final function
+#+begin_src c++
+  bool evaluate(Node* head, const unordered_map<char, bool>& vals) {
+    if(head == nullptr) return false;
+    if(vals.find(head->data) != vals.end())
+      return vals.at(head->data);
+
+    bool l = evaluate(head->left, vals), r = evaluate(head->right, vals);
+    switch (head->data) {
+    case '~':
+      return !r;
+      break;
+    case '+':
+      return l || r;
+      break;
+    case '*':
+      return l && r;
+      break;
+    case '>':
+      return !l || r;
+      break;
+    default:
+      return false;
+      break;
+    }
+  }
+#+end_src
