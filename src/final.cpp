@@ -48,7 +48,7 @@ string infixToPrefix(string s) {
 	  if (st.empty() || st.top() == ')' || operators.at(c) > operators.at(st.top())) {
         st.push(c);
       } else {
-        while (!st.empty() && operators.at(c) < operators.at(st.top())) {
+        while (!st.empty() && st.top() != ')' && operators.at(c) < operators.at(st.top())) {
           ans.push_back(st.top());
           st.pop();
         }
@@ -130,7 +130,7 @@ int main() {
   string s;
   cin >> s;
   string prefix = infixToPrefix(s);
-  Node *root = prefixToTree(prefix, 0, prefix.size() - 1).first;
+  Node *root = prefixToTree(prefix, 0, (int)prefix.size() - 1).first;
 
   cout << "Prefix: " << prefix << "\n";
   cout << "Inorder: " << '\n';
