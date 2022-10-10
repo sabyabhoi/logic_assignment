@@ -42,8 +42,7 @@ string infixToPrefix(string s) {
   string ans = "";
 
   for (char c : s) {
-    if (c == ' ')
-      continue;
+    if (c == ' ') continue;
     if (operators.find(c) != operators.end()) {
 	  if (st.empty() || st.top() == ')' || operators.at(c) > operators.at(st.top())) {
         st.push(c);
@@ -128,7 +127,7 @@ int main() {
   int n;
   cin >> n;
   string s;
-  cin >> s;
+  getline(cin, s);
   string prefix = infixToPrefix(s);
   Node *root = prefixToTree(prefix, 0, (int)prefix.size() - 1).first;
 
