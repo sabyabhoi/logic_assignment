@@ -4,8 +4,12 @@
 
 namespace stack {
 struct Stack {
+
+  Stack();
+  ~Stack();
+
   list::Node* topVar;
-  int size;
+  unsigned int size;
 
   void push(char);
   void pop();
