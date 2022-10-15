@@ -1,5 +1,5 @@
 #include "stack.hpp"
-
+/// @brief 
 namespace stack {
 void Stack::push(char c) {
   if (topVar == nullptr) {
