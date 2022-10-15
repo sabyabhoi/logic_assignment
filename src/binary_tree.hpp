@@ -1,10 +1,15 @@
 #pragma once
 
 namespace binary_tree {
+/// Binary tree node structure
+
 struct Node {
+  /// actual data contained in the node
   char data;
-  Node *left;
-  Node *right;
+  /// pointer to left subtree
+  Node *left; 
+  /// pointer to right subtree
+  Node *right; 
 
   Node(char);
 };
