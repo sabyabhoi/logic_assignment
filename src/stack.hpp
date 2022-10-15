@@ -5,12 +5,13 @@
 namespace stack {
 /// @brief It is the structure used to implement stack functionality.
 struct Stack {
-  /// @brief it is a node of type doubly linked list which stores the topmost element of the stack.
-  list::Node* topVar; 
-  /// @brief stores an integer value which equal to the size of the stack.
-  int size;
-  /// @brief this method is defined to push a character onto the top of the stack. sets the value of topVar.
-  /// @param c this parameter takes a character value. This value is pushed on the top of the stack using push.
+
+  Stack();
+  ~Stack();
+
+  list::Node* topVar;
+  unsigned int size;
+
   void push(char);
   /// @brief this method is used to remove the topmost element of the stack stored in topVar.
   void pop();
