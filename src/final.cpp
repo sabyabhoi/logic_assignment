@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include "stack.hpp"
+#include <iostream>
+#include "utils.hpp"
+#include <string>
 
 using namespace std;
 
@@ -35,19 +38,18 @@ void printInorder(Node* root) {
 }
 
 string infixToPrefix(string s) {
-  stack<char> st;
-  reverse(s.begin(), s.end());
+  stack::Stack st;
+  reverse(s);
 
-  const unordered_map<char, int> operators = {{'>', 1}, {'+', 2}, {'*', 3}, {'~', 4}};
   string ans = "";
 
   for (char c : s) {
     if (c == ' ') continue;
-    if (operators.find(c) != operators.end()) {
-	  if (st.empty() || st.top() == ')' || operators.at(c) > operators.at(st.top())) {
+    if (precedence(c) != -1) {
+	  if (st.empty() || st.top() == ')' || precedence(c) > precedence(st.top())) {
         st.push(c);
       } else {
-        while (!st.empty() && st.top() != ')' && operators.at(c) < operators.at(st.top())) {
+        while (!st.empty() && st.top() != ')' && precedence(c) < precedence(st.top())) {
           ans.push_back(st.top());
           st.pop();
         }
@@ -69,7 +71,7 @@ string infixToPrefix(string s) {
     st.pop();
   }
 
-  reverse(ans.begin(), ans.end());
+  reverse(ans);
   return ans;
 }
 

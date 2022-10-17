@@ -21,7 +21,7 @@ struct Stack {
   /// @brief this method is used to remove the topmost element of the stack stored in topVar.
   void pop();
   /// @brief this method is used to check if the stack is empty or not.
-  /// @return true if the integer value stored in the variable size is >0. false in all other cases.
+  /// @return true if the integer value stored in the variable size is equal to 0. false in all other cases.
   bool empty();
   /// @brief this method is used to check the value stored in topVar.
   /// @return the value stored in topVar.

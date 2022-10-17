@@ -30,12 +30,13 @@ void Stack::push(char c) {
 void Stack::pop() {
   if (topVar == nullptr)
     return;
-  topVar = topVar->prev;
-  delete topVar->next;
+  auto prev = topVar->prev;
+  delete topVar;
+  topVar = prev;
   --size;
 }
 
-bool Stack::empty() { return size > 0; }
+bool Stack::empty() { return size == 0; }
 
 char Stack::top() {
   if (topVar == nullptr)
