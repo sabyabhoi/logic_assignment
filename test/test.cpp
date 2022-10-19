@@ -40,7 +40,7 @@ TEST(ParseTreeTest, HeightAndRoot) {
   test_expression("+A*BC", 3, '+');
 }
 
-TEST(ParseTreeTest, Evaluation) {
+TEST(ParseTreeTest, OrEval) {
   using namespace parse_tree;
   Node *head = prefixToTree("+AB", 0, 2).first;
   int vals[26];
@@ -53,6 +53,28 @@ TEST(ParseTreeTest, Evaluation) {
   vals[char_index('A')] = 1;
   vals[char_index('B')] = 0;
   EXPECT_EQ(evaluate(head, vals), 1);
+  vals[char_index('A')] = 0;
+  vals[char_index('B')] = 1;
+  EXPECT_EQ(evaluate(head, vals), 1);
+  vals[char_index('A')] = 1;
+  vals[char_index('B')] = 1;
+  EXPECT_EQ(evaluate(head, vals), 1);
+  deleteTree(head);
+}
+
+TEST(ParseTreeTest, ImplicationEval) {
+  using namespace parse_tree;
+  Node *head = prefixToTree(">AB", 0, 2).first;
+  int vals[26];
+  for(int i = 0; i < 26; ++i) {
+	vals[i] = -1;
+  }
+  vals[char_index('A')] = 0;
+  vals[char_index('B')] = 0;
+  EXPECT_EQ(evaluate(head, vals), 1);
+  vals[char_index('A')] = 1;
+  vals[char_index('B')] = 0;
+  EXPECT_EQ(evaluate(head, vals), 0);
   vals[char_index('A')] = 0;
   vals[char_index('B')] = 1;
   EXPECT_EQ(evaluate(head, vals), 1);
