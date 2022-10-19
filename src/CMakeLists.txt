@@ -2,11 +2,6 @@ cmake_minimum_required(VERSION 3.1)
 
 set(BINARY ${CMAKE_PROJECT_NAME}_run)
 
-#project(logic_1 LANGUAGES CXX)
-
-include_directories(../include)
-link_directories(../include)
-
 add_library(utils SHARED utils.cpp)
 add_library(parse_tree SHARED parse_tree.cpp)
 add_library(linked_list SHARED linked_list.cpp)
