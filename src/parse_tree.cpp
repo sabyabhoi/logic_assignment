@@ -89,6 +89,16 @@ string infixToPrefix(string s) {
   return ans;
 }
 
+void getAtoms(Node *head, bool *atoms) {
+  if (head == nullptr) return;
+  if (char_index(head->data) != -1) {
+    atoms[char_index(head->data)] = true;
+	return;
+  }
+  getAtoms(head->left, atoms);
+  getAtoms(head->right, atoms);
+}
+
 /*!
  * @brief Takes a prefix expression and returns a parse tree for the expression
  * @param s the actual prefix expression

@@ -23,6 +23,7 @@ struct Node {
 
 string infixToPrefix(string s);
 pair<Node *, int> prefixToTree(const string &, int, int);
+void getAtoms(Node *, bool *);
 void printInorder(Node *);
 int height(Node *);
 bool evaluate(Node *, const int *);
