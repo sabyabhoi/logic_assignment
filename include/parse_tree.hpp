@@ -21,9 +21,10 @@ struct Node {
   Node(char);
 };
 
-void deleteTree(Node *);
-int height(Node *);
-void printInorder(Node *);
 string infixToPrefix(string s);
-pair<Node *, int> prefixToTree(const string &s, int l, int r);
+pair<Node *, int> prefixToTree(const string &, int, int);
+void printInorder(Node *);
+int height(Node *);
+bool evaluate(Node *, const int *);
+void deleteTree(Node *);
 } // namespace parse_tree

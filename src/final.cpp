@@ -100,10 +100,10 @@ pair<Node *, int> prefixToTree(const string& s, int l, int r) {
   return {curr, l};
 }
 
-bool evaluate(Node* head, const unordered_map<char, bool>& vals) {
+bool evaluate(Node* head, const int* vals) {
   if(head == nullptr) return false;
-  if(vals.find(head->data) != vals.end())
-	return vals.at(head->data);
+  if(vals[char_index(head->data)] != -1)
+	return vals[char_index(head->data)];
 
   bool l = evaluate(head->left, vals), r = evaluate(head->right, vals);
   switch (head->data) {

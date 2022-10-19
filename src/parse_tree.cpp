@@ -121,4 +121,38 @@ pair<Node *, int> prefixToTree(const string& s, int l, int r) {
   }
   return {curr, l};
 }
+
+/*!
+ * @brief Evaluate the given parse tree by passing in truth values for
+ * individual propositional atom
+ * @param head pointer to the root of the parse tree
+ * @param vals an array of size 26, containing truth values for all the
+ * propositional atoms. An important point to note here is that the
+ * propositional atoms can only be case-insensitive english alphabets
+ * @return true or false depending on the evaluation of the logical expression
+ */
+bool evaluate(Node *head, const int *vals) {
+  if(head == nullptr) return false;
+  if (char_index(head->data) != -1 && vals[char_index(head->data)] != -1)
+	return vals[char_index(head->data)];
+
+  bool l = evaluate(head->left, vals), r = evaluate(head->right, vals);
+  switch (head->data) {
+  case '~':
+	return !r;
+	break;
+  case '+':
+	return l || r;
+	break;
+  case '*':
+	return l && r;
+	break;
+  case '>':
+	return !l || r;
+	break;
+  default:
+	return false;
+	break;
+  }
+}
 } // namespace parse_tree

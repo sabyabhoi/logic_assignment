@@ -24,3 +24,11 @@ void reverse(std::string& s) {
 	s[n - i - 1] = tmp;
   }
 }
+
+int char_index(char c) {
+  if (c >= 'a' && c <= 'z')
+	return (int)(c - 'a');
+  else if (c >= 'A' && c <= 'Z')
+	return (int)(c - 'A');
+  return -1;
+}
