@@ -34,14 +34,12 @@ project "proParser_test"
 		"lib/googletest/googletest/include"
 	}
 
-	files {
-		"src/**.cpp",
-	}
-	removefiles {"src/main.cpp"}
-
 	libdirs { "lib" }
 	files {
+		"src/**.cpp",
 		"test/**.cpp",
 		"lib/googletest/googletest/src/gtest-all.cc"
 	}
+	removefiles {"src/main.cpp"}
+
 
