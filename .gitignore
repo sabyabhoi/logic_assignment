@@ -6,3 +6,5 @@ html/
 dest/
 build/
 .cache/
+obj/
+bin/
