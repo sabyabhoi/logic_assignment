@@ -30,7 +30,7 @@ int height(Node *root) {
   return (l > r ? l : r) + 1;
 }
 
-/// @brief Traverse the parse tree in an inorder fashion and print the contents of each node
+/// @brief Traverse the parse tree in an in-order fashion and print the contents of each node
 /// @param root pointer to the root of the tree
 void printInorder(Node* root) {
 	if(root == nullptr) return;
