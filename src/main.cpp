@@ -24,6 +24,7 @@ int main() {
 
   // Task 5: Evaluating the expression
   bool* atomsPresent = new bool[26];
+  for (int i = 0; i < 26; ++i) atomsPresent[i] = 0;
   int* atoms = new int[26];
   getAtoms(head, atomsPresent);
   cout << "Enter value of each propositional atom (0 or 1): \n";
