@@ -2,20 +2,19 @@
 
 namespace parse_tree {
 /// Constructor for the Node struct
-Node::Node(char x) : data(x), left(nullptr), right(nullptr) {}
+Node::Node(char x) : data(x), left(nullptr), right(nullptr) {} 
 
-/*!
- * @brief Deletes all the nodes in a binary tree by traversing the tree in a
- * post-order fashion.
- * @param head Root of the tree to be deleted
- */
+/// @brief For recursively deleting nodes from bottom to top. If the head is not a null pointer, recursively deletes the nodes. After deleting the left child, deletes the right child and then finally deletes the head node.
+/// @param head For a given subtree head is the parent node for that particular subtree
 void deleteTree(Node *head) {
   if (head == nullptr) 
     return;
 
   deleteTree(head->left); 
+
   deleteTree(head->right); 
-  delete head;
+
+  delete head; 
 }
 
 /*!
@@ -31,18 +30,14 @@ int height(Node *root) {
   return (l > r ? l : r) + 1;
 }
 
-/*
- * @brief Traverse the parse tree in an inorder fashion and print the contents
- * of each node
- * @param root pointer to the root of the tree
- */
-void printInorder(Node *root) {
-  if (root == nullptr)
-    return;
+/// @brief Traverse the parse tree in an inorder fashion and print the contents of each node
+/// @param root pointer to the root of the tree
+void printInorder(Node* root) {
+	if(root == nullptr) return;
 
-  printInorder(root->left);
-  cout << root->data << ' ';
-  printInorder(root->right);
+	printInorder(root->left);
+	cout << root->data << ' ';
+	printInorder(root->right);
 }
 
 /*!
