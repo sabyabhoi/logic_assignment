@@ -3,14 +3,14 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 Group Members:
-|------------------------+---------------|
-| Name                   | ID            |
-|------------------------+---------------|
-| Sabyasachi Bhoi        | 2020B3A72147H |
-| Anand Babu             | 2020B3A70776H |
-| Arya not-so-single war | 2020B3A71861H |
-| Dhruvudeen-Al-Deshmukh | 2020B3A72160H |
-|------------------------+---------------|
+|-----------------+---------------|
+| Name            | ID            |
+|-----------------+---------------|
+| Sabyasachi Bhoi | 2020B3A72147H |
+| Chinmay Anand   | 2020B3A70776H |
+| Arya Singalwar  | 2020B3A71861H |
+| Dhruv Deshmukh  | 2020B3A72160H |
+|-----------------+---------------|
 
 * Converting infix to prefix expression
 The precedence order of all the operations are as follows:
@@ -24,7 +24,7 @@ In order to convert an infix propositional logic expresson to a prefix expressio
 ** Algorithm
 1. Initialize an empty stack and an =ans= variable to keep track of the final answer.
     #+begin_src c++
-    stack<char> st;
+    stack st;
     string ans = "";
     #+end_src
 

@@ -1,0 +1,85 @@
+[
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/linked_list.cpp",
+            "command": "cc -MMD -MP -DDEBUG -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -m64 -g -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/linked_list.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/linked_list.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/linked_list.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/main.cpp",
+            "command": "cc -MMD -MP -DDEBUG -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -m64 -g -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/main.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/main.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/main.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/parse_tree.cpp",
+            "command": "cc -MMD -MP -DDEBUG -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -m64 -g -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/parse_tree.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/parse_tree.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/parse_tree.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/stack.cpp",
+            "command": "cc -MMD -MP -DDEBUG -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -m64 -g -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/stack.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/stack.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/stack.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/timer.cpp",
+            "command": "cc -MMD -MP -DDEBUG -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -m64 -g -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/timer.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/timer.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/timer.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/utils.cpp",
+            "command": "cc -MMD -MP -DDEBUG -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -m64 -g -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/utils.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser/utils.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/utils.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest/src/gtest-all.cc",
+            "command": "cc -MMD -MP -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest/include -m64 -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/gtest-all.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/gtest-all.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest/src/gtest-all.cc"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/linked_list.cpp",
+            "command": "cc -MMD -MP -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest/include -m64 -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/linked_list.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/linked_list.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/linked_list.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/parse_tree.cpp",
+            "command": "cc -MMD -MP -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest/include -m64 -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/parse_tree.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/parse_tree.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/parse_tree.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/stack.cpp",
+            "command": "cc -MMD -MP -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest/include -m64 -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/stack.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/stack.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/stack.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/timer.cpp",
+            "command": "cc -MMD -MP -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest/include -m64 -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/timer.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/timer.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/timer.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/utils.cpp",
+            "command": "cc -MMD -MP -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest/include -m64 -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/utils.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/utils.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/src/utils.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/test/parse_tree_test.cpp",
+            "command": "cc -MMD -MP -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest/include -m64 -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/parse_tree_test.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/parse_tree_test.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/test/parse_tree_test.cpp"
+          }
+,
+          {
+            "directory": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment",
+            "file": "/home/cognusboi/workspace/userfiles/college/Logic/Assignment/test/test.cpp",
+            "command": "cc -MMD -MP -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/include -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest -I/home/cognusboi/workspace/userfiles/college/Logic/Assignment/lib/googletest/googletest/include -m64 -o /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/test.o -MF /home/cognusboi/workspace/userfiles/college/Logic/Assignment/obj/Debug/proParser_test/test.d -c /home/cognusboi/workspace/userfiles/college/Logic/Assignment/test/test.cpp"
+          }
+]

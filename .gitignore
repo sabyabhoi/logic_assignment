@@ -8,3 +8,4 @@ build/
 .cache/
 obj/
 bin/
+compile_commands/
