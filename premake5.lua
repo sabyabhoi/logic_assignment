@@ -17,6 +17,8 @@ project "proParser"
 
 	filter "configurations:Debug"
 		defines { "DEBUG" }
+		buildoptions { "-pg" }
+		linkoptions { "-pg" }
 		symbols "On"
 
 	filter "configurations:Release"

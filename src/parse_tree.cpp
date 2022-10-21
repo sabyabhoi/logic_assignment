@@ -43,7 +43,7 @@ void printInorder(Node *root) {
     return;
 
   printInorder(root->left);
-  cout << root->data << ' ';
+  cout << root->data;
   printInorder(root->right);
 }
 
