@@ -42,6 +42,9 @@ endef
 ifeq ($(config),debug)
 OBJDIR = obj/Debug/proParser_test
 
+else ifeq ($(config),profiling)
+OBJDIR = obj/Profiling/proParser_test
+
 else ifeq ($(config),release)
 OBJDIR = obj/Release/proParser_test
 

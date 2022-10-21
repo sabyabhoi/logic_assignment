@@ -12,6 +12,10 @@ ifeq ($(config),debug)
   proParser_config = debug
   proParser_test_config = debug
 
+else ifeq ($(config),profiling)
+  proParser_config = profiling
+  proParser_test_config = profiling
+
 else ifeq ($(config),release)
   proParser_config = release
   proParser_test_config = release
@@ -47,6 +51,7 @@ help:
 	@echo ""
 	@echo "CONFIGURATIONS:"
 	@echo "  debug"
+	@echo "  profiling"
 	@echo "  release"
 	@echo ""
 	@echo "TARGETS:"

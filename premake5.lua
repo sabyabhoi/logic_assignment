@@ -1,6 +1,6 @@
 workspace "proParser"
    architecture "x64"
-   configurations { "Debug", "Release" }
+   configurations { "Debug",  "Profiling", "Release" }
    
 project "proParser"
 	kind "ConsoleApp"
@@ -17,9 +17,14 @@ project "proParser"
 
 	filter "configurations:Debug"
 		defines { "DEBUG" }
+		symbols "On"
+
+	filter "configurations:Profiling"
+		defines { "DEBUG" }
 		buildoptions { "-pg" }
 		linkoptions { "-pg" }
 		symbols "On"
+		optimize "On"
 
 	filter "configurations:Release"
 		defines { "NDEBUG" }

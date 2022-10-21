@@ -38,8 +38,17 @@ TARGETDIR = bin/Debug
 TARGET = $(TARGETDIR)/proParser
 OBJDIR = obj/Debug/proParser
 DEFINES += -DDEBUG
-ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g -pg
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g -pg
+ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g
+ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64
+
+else ifeq ($(config),profiling)
+TARGETDIR = bin/Profiling
+TARGET = $(TARGETDIR)/proParser
+OBJDIR = obj/Profiling/proParser
+DEFINES += -DDEBUG
+ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -g -pg
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -g -pg
 ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -pg
 
 else ifeq ($(config),release)
