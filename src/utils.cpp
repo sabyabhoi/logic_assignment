@@ -1,5 +1,13 @@
 #include "utils.hpp"
 
+/*!
+ * @brief Precedence order of all the logical expressions:
+ *
+ * ~ > * > + > (>)
+ *
+ * @param c the character for which the precedence needs to be determined
+ * @returns the precedence of the logical expression
+ */
 int precedence(char c) {
   switch (c) {
   case '>':
@@ -16,6 +24,8 @@ int precedence(char c) {
   }
 }
 
+/// @brief Reverse a string in-place
+/// @param s the string to be reversed
 void reverse(std::string& s) {
   unsigned int n = s.length();
   for(unsigned int i = 0; i < n - i; ++i) {
@@ -25,6 +35,11 @@ void reverse(std::string& s) {
   }
 }
 
+/*!
+ * @brief Get the index of an alphabet (case insensitive) between 0 to 25
+ * @param c the character for which the index is to be determined
+ * @return the index of the respective character
+ */
 int char_index(char c) {
   if (c >= 'a' && c <= 'z')
 	return (int)(c - 'a');

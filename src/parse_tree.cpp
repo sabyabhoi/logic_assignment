@@ -1,20 +1,25 @@
-#include "parse_tree.hpp" 
+#include "parse_tree.hpp"
 
 namespace parse_tree {
 /// Constructor for the Node struct
-Node::Node(char x) : data(x), left(nullptr), right(nullptr) {} 
+Node::Node(char x) : data(x), left(nullptr), right(nullptr) {}
 
-/// @brief For recursively deleting nodes from bottom to top. If the head is not a null pointer, recursively deletes the nodes. After deleting the left child, deletes the right child and then finally deletes the head node.
-/// @param head For a given subtree head is the parent node for that particular subtree
+/*!
+ * @brief For recursively deleting nodes from bottom to top. If the head is not
+ * a null pointer, recursively deletes the nodes. After deleting the left
+ * child, deletes the right child and then finally deletes the head node.
+ * @param head For a given subtree head is the parent node for that particular
+ * subtree
+ */
 void deleteTree(Node *head) {
-  if (head == nullptr) 
+  if (head == nullptr)
     return;
 
-  deleteTree(head->left); 
+  deleteTree(head->left);
 
-  deleteTree(head->right); 
+  deleteTree(head->right);
 
-  delete head; 
+  delete head;
 }
 
 /*!
@@ -30,14 +35,16 @@ int height(Node *root) {
   return (l > r ? l : r) + 1;
 }
 
-/// @brief Traverse the parse tree in an in-order fashion and print the contents of each node
+/// @brief Traverse the parse tree in an in-order fashion and print the contents
+/// of each node
 /// @param root pointer to the root of the tree
-void printInorder(Node* root) {
-	if(root == nullptr) return;
+void printInorder(Node *root) {
+  if (root == nullptr)
+    return;
 
-	printInorder(root->left);
-	cout << root->data << ' ';
-	printInorder(root->right);
+  printInorder(root->left);
+  cout << root->data << ' ';
+  printInorder(root->right);
 }
 
 /*!
@@ -52,26 +59,30 @@ string infixToPrefix(string s) {
   string ans = "";
 
   for (char c : s) {
-    if (c == ' ') continue;
+    if (c == ' ')
+      continue;
     if (precedence(c) != -1) {
-	  if (st.empty() || st.top() == ')' || precedence(c) > precedence(st.top())) {
+      if (st.empty() || st.top() == ')' ||
+          precedence(c) > precedence(st.top())) {
         st.push(c);
       } else {
-        while (!st.empty() && st.top() != ')' && precedence(c) < precedence(st.top())) {
+        while (!st.empty() && st.top() != ')' &&
+               precedence(c) < precedence(st.top())) {
           ans.push_back(st.top());
           st.pop();
         }
-		st.push(c);
+        st.push(c);
       }
     } else if (c == ')') {
-	  st.push(c);
-	} else if (c == '(') {
+      st.push(c);
+    } else if (c == '(') {
       while (st.top() != ')') {
         ans.push_back(st.top());
         st.pop();
       }
       st.pop();
-    } else ans.push_back(c);
+    } else
+      ans.push_back(c);
   }
 
   while (!st.empty()) {
@@ -83,11 +94,19 @@ string infixToPrefix(string s) {
   return ans;
 }
 
+/*!
+ * @brief Retrieves all the propositional atoms from a given parse tree.
+ * @param head the root of the parse tree
+ * @param atoms a boolean array of size 26; The atoms which exist in the parse
+ * tree are going to have a value of 1 at their respective numerical index in
+ * this array
+ */
 void getAtoms(Node *head, bool *atoms) {
-  if (head == nullptr) return;
+  if (head == nullptr)
+    return;
   if (char_index(head->data) != -1) {
     atoms[char_index(head->data)] = true;
-	return;
+    return;
   }
   getAtoms(head->left, atoms);
   getAtoms(head->right, atoms);
@@ -101,7 +120,7 @@ void getAtoms(Node *head, bool *atoms) {
  * @return A pair containing the pointer to the root of the parse tree and an
  * integer which is required for internal processing.
  */
-pair<Node *, int> prefixToTree(const string& s, int l, int r) {
+pair<Node *, int> prefixToTree(const string &s, int l, int r) {
   if (l > r)
     return {nullptr, l};
   else if (l == r)
@@ -136,27 +155,28 @@ pair<Node *, int> prefixToTree(const string& s, int l, int r) {
  * @return true or false depending on the evaluation of the logical expression
  */
 bool evaluate(Node *head, const int *vals) {
-  if(head == nullptr) return false;
+  if (head == nullptr)
+    return false;
   if (char_index(head->data) != -1 && vals[char_index(head->data)] != -1)
-	return vals[char_index(head->data)];
+    return vals[char_index(head->data)];
 
   bool l = evaluate(head->left, vals), r = evaluate(head->right, vals);
   switch (head->data) {
   case '~':
-	return !r;
-	break;
+    return !r;
+    break;
   case '+':
-	return l || r;
-	break;
+    return l || r;
+    break;
   case '*':
-	return l && r;
-	break;
+    return l && r;
+    break;
   case '>':
-	return !l || r;
-	break;
+    return !l || r;
+    break;
   default:
-	return false;
-	break;
+    return false;
+    break;
   }
 }
 } // namespace parse_tree
