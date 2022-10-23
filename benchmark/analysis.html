@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-23 Sun 16:57 -->
+<!-- 2022-10-23 Sun 18:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Benchmark Analysis</title>
@@ -22,15 +22,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org13db04b">1. Flat Profile</a></li>
-<li><a href="#org0e6783e">2. Call graph</a></li>
-<li><a href="#org0df2c15">3. Input vs Time</a></li>
+<li><a href="#org24c85e7">1. Flat Profile</a></li>
+<li><a href="#org6373b74">2. Call graph</a></li>
+<li><a href="#org546b690">3. Input vs Time</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org13db04b" class="outline-2">
-<h2 id="org13db04b"><span class="section-number-2">1.</span> Flat Profile</h2>
+<div id="outline-container-org24c85e7" class="outline-2">
+<h2 id="org24c85e7"><span class="section-number-2">1.</span> Flat Profile</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The following table denotes the number of times each function was called and how much time each function took.
@@ -179,21 +179,38 @@ The following table denotes the number of times each function was called and how
 </div>
 </div>
 
-<div id="outline-container-org0e6783e" class="outline-2">
-<h2 id="org0e6783e"><span class="section-number-2">2.</span> Call graph</h2>
+<div id="outline-container-org6373b74" class="outline-2">
+<h2 id="org6373b74"><span class="section-number-2">2.</span> Call graph</h2>
 <div class="outline-text-2" id="text-2">
 <p>
+In this call graph we try to give a figurative description of what function in the program consumes what percentage of time as well as how many times that particular function has been called .
+</p>
+
+<p>
+Inside each box, we first have the name of the function. Below it, we have its Self Time i.e. what fraction of running time has been spent in that particular function. Similarly, we have the total number of times this function was called.
+</p>
+
+<p>
+The arrows between two boxes show the parent-child relationship between the two functions. The time percentage value mentioned on these arrows represents the fraction of running time of the parent consumed by that particular child. Simliarly, the number of calls on the arrows represent the number of times the child function was called by the parent function.
+</p>
+
+<p>
+The curved arrows attached to a given box shows the number of recursive calls made by that particular function.
 (Open in image new tab for better view)
 <img src="./results/output.svg" alt="output.svg" class="org-svg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0df2c15" class="outline-2">
-<h2 id="org0df2c15"><span class="section-number-2">3.</span> Input vs Time</h2>
+<div id="outline-container-org546b690" class="outline-2">
+<h2 id="org546b690"><span class="section-number-2">3.</span> Input vs Time</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+The maximum input size for the program is an input with 3,00,000 propositional atoms. 
+</p>
 
-<div id="orgda09ae3" class="figure">
+
+<div id="org8404b5d" class="figure">
 <p><img src="./results/TimeVsInput.png" alt="TimeVsInput.png" />
 </p>
 </div>
@@ -248,7 +265,7 @@ The following table denotes the number of times each function was called and how
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-10-23 Sun 16:57</p>
+<p class="date">Created: 2022-10-23 Sun 18:27</p>
 </div>
 </body>
 </html>

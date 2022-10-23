@@ -3,14 +3,14 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * Group Members:
-|-----------------+---------------|
-| Name            | ID            |
-|-----------------+---------------|
-| Sabyasachi Bhoi | 2020B3A72147H |
-| Chinmay Anand   | 2020B3A70776H |
-| Arya Singalwar  | 2020B3A71861H |
-| Dhruv Deshmukh  | 2020B3A72160H |
-|-----------------+---------------|
+|-----------------------+---------------|
+| Name                  | ID            |
+|-----------------------+---------------|
+| Sabyasachi Bhoi       | 2020B3A72147H |
+| Chinmay Anand         | 2020B3A70776H |
+| Arya V Singalwar      | 2020B3A71861H |
+| Deshmukh Dhruv Sanjay | 2020B3A72160H |
+|-----------------------+---------------|
 
 * Project Walkthrough
 ** Running the project
@@ -19,10 +19,10 @@ The program can be run by running =/bin/Release/proParser= executable.
 ** Compiling the project
 The project can be compiled by running the make file available in the project root:
 #+begin_src sh
-make all && ./bin/Release/proParser
+make config=release all && ./bin/Release/proParser
 #+end_src
 
-In case you're on Windows, install premake and Visual Studio and run the following command:
+In case you're on Windows, install premake and Visual Studio and run the following command in the project root:
 #+begin_src sh
 premake5 vs2017
 #+end_src

@@ -1,7 +1,6 @@
 #include "parse_tree.hpp"
 #include "gtest/gtest.h"
 
-
 TEST(ParseTreeTest, InfixToPrefix) {
   using namespace parse_tree;
   EXPECT_EQ(infixToPrefix("A+B"), "+AB");

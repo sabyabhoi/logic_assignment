@@ -38,6 +38,7 @@ The curved arrows attached to a given box shows the number of recursive calls ma
 [[./results/output.svg]]
 
 * Input vs Time
+The maximum input size for the program is an input with 3,00,000 propositional atoms. 
 
 [[./results/TimeVsInput.png]]
 
