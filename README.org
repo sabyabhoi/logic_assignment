@@ -33,6 +33,8 @@ In case you're on Mac, install premake and xcode4, and run the following command
 premake5 xcode4
 #+end_src
 
+** Documentation
+All the documentation is available in html format in the [[./dest/html/index.html]] file.
 ** Unit tests
 Unit tests are available in the =test= directory, and all the unit tests can be run by running the following executable:
 #+begin_src sh
