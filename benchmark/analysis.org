@@ -26,6 +26,14 @@ The following table denotes the number of times each function was called and how
 |-----------+--------+-----------------+----------------------------------------|
 
 * Call graph
+
+In this call graph we try to give a figurative description of what function in the program consumes what percentage of time as well as how many times that particular function has been called .
+
+Inside each box, we first have the name of the function. Below it, we have its Self Time i.e. what fraction of running time has been spent in that particular function. Similarly, we have the total number of times this function was called.
+
+The arrows between two boxes show the parent-child relationship between the two functions. The time percentage value mentioned on these arrows represents the fraction of running time of the parent consumed by that particular child. Simliarly, the number of calls on the arrows represent the number of times the child function was called by the parent function.
+
+The curved arrows attached to a given box shows the number of recursive calls made by that particular function.
 (Open in image new tab for better view)
 [[./results/output.svg]]
 
