@@ -36,6 +36,15 @@ TEST(UtilsTest, Precedence) {
 	EXPECT_EQ(precedence('~'), 4);
 	EXPECT_EQ(precedence('<'), -1);
 }
+
+TEST(UtilsTest, Reverse) {
+  string s = "abc";
+  reverse(s);
+  EXPECT_EQ(s, "cba");
+  reverse(s);
+  EXPECT_EQ(s, "abc");
+}
+
 int main(int argc, char *argv[]) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
