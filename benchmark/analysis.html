@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-23 Sun 18:27 -->
+<!-- 2022-10-23 Sun 21:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Benchmark Analysis</title>
@@ -22,15 +22,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org24c85e7">1. Flat Profile</a></li>
-<li><a href="#org6373b74">2. Call graph</a></li>
-<li><a href="#org546b690">3. Input vs Time</a></li>
+<li><a href="#org293768c">1. Flat Profile</a></li>
+<li><a href="#org422a8b4">2. Call graph</a></li>
+<li><a href="#org747d686">3. Input vs Time</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org24c85e7" class="outline-2">
-<h2 id="org24c85e7"><span class="section-number-2">1.</span> Flat Profile</h2>
+<div id="outline-container-org293768c" class="outline-2">
+<h2 id="org293768c"><span class="section-number-2">1.</span> Flat Profile</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The following table denotes the number of times each function was called and how much time each function took.
@@ -49,7 +49,7 @@ The following table denotes the number of times each function was called and how
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-right">% of time</th>
+<th scope="col" class="org-right">time</th>
 <th scope="col" class="org-right">calls</th>
 <th scope="col" class="org-right">total time/call</th>
 <th scope="col" class="org-left">name</th>
@@ -58,49 +58,56 @@ The following table denotes the number of times each function was called and how
 <tbody>
 <tr>
 <td class="org-right">100.00</td>
-<td class="org-right">283353</td>
-<td class="org-right">0.00</td>
-<td class="org-left">Stack::top()</td>
+<td class="org-right">1</td>
+<td class="org-right">10.00</td>
+<td class="org-left">parse<sub>tree</sub>::evaluate(parse<sub>tree</sub>::Node*, int const*)</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
-<td class="org-right">349998</td>
+<td class="org-right">1049998</td>
 <td class="org-right">0.00</td>
 <td class="org-left">char<sub>index</sub>(char)</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
-<td class="org-right">333353</td>
+<td class="org-right">1000133</td>
 <td class="org-right">0.00</td>
 <td class="org-left">precedence(char)</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
-<td class="org-right">133408</td>
+<td class="org-right">850133</td>
+<td class="org-right">0.00</td>
+<td class="org-left">Stack::top()</td>
+</tr>
+
+<tr>
+<td class="org-right">0.00</td>
+<td class="org-right">400109</td>
 <td class="org-right">0.00</td>
 <td class="org-left">Stack::empty()</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
-<td class="org-right">49999</td>
+<td class="org-right">149999</td>
 <td class="org-right">0.00</td>
 <td class="org-left">list::Node::Node(char)</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
-<td class="org-right">49999</td>
+<td class="org-right">149999</td>
 <td class="org-right">0.00</td>
 <td class="org-left">Stack::pop()</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
-<td class="org-right">49999</td>
+<td class="org-right">149999</td>
 <td class="org-right">0.00</td>
 <td class="org-left">Stack::push(char)</td>
 </tr>
@@ -116,49 +123,42 @@ The following table denotes the number of times each function was called and how
 <td class="org-right">0.00</td>
 <td class="org-right">1</td>
 <td class="org-right">0.00</td>
-<td class="org-left">deleteTree(parse<sub>tree</sub>::Node*)</td>
+<td class="org-left">parse<sub>tree</sub>::deleteTree(parse<sub>tree</sub>::Node*)</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
 <td class="org-right">1</td>
 <td class="org-right">0.00</td>
-<td class="org-left">prefixToTree(string, int, int)</td>
+<td class="org-left">parse<sub>tree</sub>::prefixToTree(string, int, int)</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
 <td class="org-right">1</td>
 <td class="org-right">0.00</td>
-<td class="org-left">printInorder(parse<sub>tree</sub>::Node*)</td>
-</tr>
-
-<tr>
-<td class="org-right">0.00</td>
-<td class="org-right">1</td>
-<td class="org-right">10.00</td>
-<td class="org-left">infixToPrefix(string)</td>
+<td class="org-left">parse<sub>tree</sub>::printInorder(parse<sub>tree</sub>::Node*)</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
 <td class="org-right">1</td>
 <td class="org-right">0.00</td>
-<td class="org-left">height(parse<sub>tree</sub>::Node*)</td>
+<td class="org-left">parse<sub>tree</sub>::infixToPrefix(string)</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
 <td class="org-right">1</td>
 <td class="org-right">0.00</td>
-<td class="org-left">evaluate(parse<sub>tree</sub>::Node*, int const*)</td>
+<td class="org-left">parse<sub>tree</sub>::height(parse<sub>tree</sub>::Node*)</td>
 </tr>
 
 <tr>
 <td class="org-right">0.00</td>
 <td class="org-right">1</td>
 <td class="org-right">0.00</td>
-<td class="org-left">getAtoms(parse<sub>tree</sub>::Node*, bool*)</td>
+<td class="org-left">parse<sub>tree</sub>::getAtoms(parse<sub>tree</sub>::Node*, bool*)</td>
 </tr>
 
 <tr>
@@ -179,8 +179,8 @@ The following table denotes the number of times each function was called and how
 </div>
 </div>
 
-<div id="outline-container-org6373b74" class="outline-2">
-<h2 id="org6373b74"><span class="section-number-2">2.</span> Call graph</h2>
+<div id="outline-container-org422a8b4" class="outline-2">
+<h2 id="org422a8b4"><span class="section-number-2">2.</span> Call graph</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In this call graph we try to give a figurative description of what function in the program consumes what percentage of time as well as how many times that particular function has been called .
@@ -202,15 +202,15 @@ The curved arrows attached to a given box shows the number of recursive calls ma
 </div>
 </div>
 
-<div id="outline-container-org546b690" class="outline-2">
-<h2 id="org546b690"><span class="section-number-2">3.</span> Input vs Time</h2>
+<div id="outline-container-org747d686" class="outline-2">
+<h2 id="org747d686"><span class="section-number-2">3.</span> Input vs Time</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The maximum input size for the program is an input with 3,00,000 propositional atoms. 
 </p>
 
 
-<div id="org8404b5d" class="figure">
+<div id="org24de8c9" class="figure">
 <p><img src="./results/TimeVsInput.png" alt="TimeVsInput.png" />
 </p>
 </div>
@@ -265,7 +265,7 @@ The maximum input size for the program is an input with 3,00,000 propositional a
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-10-23 Sun 18:27</p>
+<p class="date">Created: 2022-10-23 Sun 21:34</p>
 </div>
 </body>
 </html>
