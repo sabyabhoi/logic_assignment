@@ -29,6 +29,13 @@ TEST(UtilsTest, CharIndex) {
   EXPECT_EQ(char_index('z'), 25);
 }
 
+TEST(UtilsTest, Precedence) {
+	EXPECT_EQ(precedence('>'), 1);
+	EXPECT_EQ(precedence('+'), 2);
+	EXPECT_EQ(precedence('*'), 3);
+	EXPECT_EQ(precedence('~'), 4);
+	EXPECT_EQ(precedence('<'), -1);
+}
 int main(int argc, char *argv[]) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
