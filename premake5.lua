@@ -17,17 +17,20 @@ project "proParser"
 
 	filter "configurations:Debug"
 		defines { "DEBUG" }
+		removefiles {"src/profiler.cpp"}
 		symbols "On"
 
 	filter "configurations:Profiling"
 		defines { "DEBUG" }
 		buildoptions { "-pg" }
 		linkoptions { "-pg" }
+		removefiles {"src/main.cpp"}
 		symbols "On"
 		optimize "On"
 
 	filter "configurations:Release"
 		defines { "NDEBUG" }
+		removefiles {"src/profiler.cpp"}
 		optimize "On"
 
 project "proParser_test"
@@ -47,6 +50,6 @@ project "proParser_test"
 		"test/**.cpp",
 		"lib/googletest/googletest/src/gtest-all.cc"
 	}
-	removefiles {"src/main.cpp"}
+	removefiles {"src/main.cpp", "src/profiler.cpp"}
 
 

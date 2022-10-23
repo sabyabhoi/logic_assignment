@@ -73,17 +73,29 @@ GENERATED :=
 OBJECTS :=
 
 GENERATED += $(OBJDIR)/linked_list.o
-GENERATED += $(OBJDIR)/main.o
 GENERATED += $(OBJDIR)/parse_tree.o
 GENERATED += $(OBJDIR)/stack.o
 GENERATED += $(OBJDIR)/timer.o
 GENERATED += $(OBJDIR)/utils.o
 OBJECTS += $(OBJDIR)/linked_list.o
-OBJECTS += $(OBJDIR)/main.o
 OBJECTS += $(OBJDIR)/parse_tree.o
 OBJECTS += $(OBJDIR)/stack.o
 OBJECTS += $(OBJDIR)/timer.o
 OBJECTS += $(OBJDIR)/utils.o
+
+ifeq ($(config),debug)
+GENERATED += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/main.o
+
+else ifeq ($(config),profiling)
+GENERATED += $(OBJDIR)/profiler.o
+OBJECTS += $(OBJDIR)/profiler.o
+
+else ifeq ($(config),release)
+GENERATED += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/main.o
+
+endif
 
 # Rules
 # #############################################
@@ -150,9 +162,6 @@ endif
 $(OBJDIR)/linked_list.o: src/linked_list.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/main.o: src/main.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/parse_tree.o: src/parse_tree.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
@@ -165,6 +174,23 @@ $(OBJDIR)/timer.o: src/timer.cpp
 $(OBJDIR)/utils.o: src/utils.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+
+ifeq ($(config),debug)
+$(OBJDIR)/main.o: src/main.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+
+else ifeq ($(config),profiling)
+$(OBJDIR)/profiler.o: src/profiler.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+
+else ifeq ($(config),release)
+$(OBJDIR)/main.o: src/main.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+
+endif
 
 -include $(OBJECTS:%.o=%.d)
 ifneq (,$(PCH))
