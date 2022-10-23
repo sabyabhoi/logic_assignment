@@ -1,0 +1,45 @@
+#+TITLE:Benchmark Analysis
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* Flat Profile
+The following table denotes the number of times each function was called and how much time each function took.
+|-----------+--------+-----------------+----------------------------------------|
+| % of time |  calls | total time/call | name                                   |
+|-----------+--------+-----------------+----------------------------------------|
+|    100.00 | 283353 |            0.00 | Stack::top()                           |
+|      0.00 | 349998 |            0.00 | char_index(char)                        |
+|      0.00 | 333353 |            0.00 | precedence(char)                       |
+|      0.00 | 133408 |            0.00 | Stack::empty()                         |
+|      0.00 |  49999 |            0.00 | list::Node::Node(char)                 |
+|      0.00 |  49999 |            0.00 | Stack::pop()                           |
+|      0.00 |  49999 |            0.00 | Stack::push(char)                      |
+|      0.00 |      2 |            0.00 | reverse(string)                        |
+|      0.00 |      1 |            0.00 | deleteTree(parse_tree::Node*)           |
+|      0.00 |      1 |            0.00 | prefixToTree(string, int, int)         |
+|      0.00 |      1 |            0.00 | printInorder(parse_tree::Node*)         |
+|      0.00 |      1 |           10.00 | infixToPrefix(string)                  |
+|      0.00 |      1 |            0.00 | height(parse_tree::Node*)               |
+|      0.00 |      1 |            0.00 | evaluate(parse_tree::Node*, int const*) |
+|      0.00 |      1 |            0.00 | getAtoms(parse_tree::Node*, bool*)      |
+|      0.00 |      1 |            0.00 | Stack::Stack()                         |
+|      0.00 |      1 |            0.00 | Stack::~Stack()                        |
+|-----------+--------+-----------------+----------------------------------------|
+
+* Call graph
+(Open in image new tab for better view)
+[[./results/output.svg]]
+
+* Input vs Time
+
+[[./results/TimeVsInput.png]]
+
+|------------+----------------------------------------|
+| Input size | Time taken to execute (in miliseconds) |
+|------------+----------------------------------------|
+|       1000 |                                  4.185 |
+|       5000 |                                  7.805 |
+|      50000 |                                  27.55 |
+|     100000 |                                  49.05 |
+|     150000 |                                  75.99 |
+|     200000 |                                  94.58 |
+|------------+----------------------------------------|
